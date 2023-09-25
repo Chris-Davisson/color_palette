@@ -1,0 +1,61 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.buttons {
+    margin-bottom: 10px;
+}
+
+.boxes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    flex-direction: row;
+}
+
+.box {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+
+.color-example {
+    width: 50px;
+    height: 50px;
+    margin-bottom: 10px;
+}
+
+.color-hex {
+    margin-top: 10px;
+}
+
+.examples {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.example {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 80px;
+    border: 1px solid #ccc;
+    margin: 4px;
+    padding: 0px;
+    padding-left: 20px;
+    border-radius: 5px;
+}
+
+.example>h1,
+h2,
+h3,
+p {
+    padding-right: 20px;
+}
