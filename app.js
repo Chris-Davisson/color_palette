@@ -16,15 +16,40 @@ function addColor() {
     colorPickerInput.id = 'colorPicker' + boxCount;
     colorPickerInput.value = randomColor();
 
+    // const colorHexDiv = document.createElement('div');
+    // colorHexDiv.className = 'color-hex';
+    // colorHexDiv.id = 'colorHex' + boxCount;
+    // colorHexDiv.textContent = colorPickerInput.value;
+
+
     const colorHexDiv = document.createElement('div');
     colorHexDiv.className = 'color-hex';
     colorHexDiv.id = 'colorHex' + boxCount;
-    colorHexDiv.textContent = colorPickerInput.value;
+
+    const colorHexLabel = document.createElement('p');
+    colorHexLabel.className = 'color-hex-label';
+    colorHexLabel.id = 'colorHexLabel' + boxCount;
+    colorHexLabel.textContent = 'Hex Code';
+
+    const colorHexText = document.createElement('input');
+    colorHexText.type = 'text';
+    colorHexText.className = 'color-hex';
+    colorHexText.id = 'colorHex' + boxCount;
+    colorHexText.value = colorPickerInput.value;
+
+    colorHexDiv.appendChild(colorHexLabel);
+    colorHexDiv.appendChild(colorHexText);
+
+
+
+
+
     colors.push(colorPickerInput.value);
 
     // Append new color box elements to the box div
     boxDiv.appendChild(colorPickerInput);
     boxDiv.appendChild(colorHexDiv);
+    // boxDiv.appendChild(colorHexText);
 
     // Append the new box div to the boxes div
     boxesDiv.appendChild(boxDiv);
@@ -41,6 +66,17 @@ function addColor() {
         // Update the color in the colors array
         colors[index] = color;
         
+        addExamples();
+    });
+
+    colorHexText.addEventListener('input', function (event) {
+        const color = event.target.value;
+        if(color.length > 7 || color.length < 7) return;
+        //Change the color in colorPickerInput
+        colorPickerInput.value = color;
+        // Extract the number from the id of colorPickerInput to find the index in the colors array
+        const index = parseInt(colorPickerInput.id.replace('colorPicker', '')) - 1;
+        colors[index] = color;
         addExamples();
     });
     if(boxCount < 2) addColor();
